@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+
+  --color-navy-50: #eef4ff;
+  --color-navy-100: #dbe7ff;
+  --color-navy-200: #bcd3ff;
+  --color-navy-300: #8db4ff;
+  --color-navy-400: #5b8bff;
+  --color-navy-500: #3563ff;
+  --color-navy-600: #1f43f0;
+  --color-navy-700: #1a34c4;
+  --color-navy-800: #182b98;
+  --color-navy-900: #0f1a54;
+  --color-navy-950: #0a1238;
+
+  --color-amber-50: #fff8ec;
+  --color-amber-100: #ffedc9;
+  --color-amber-200: #ffd98d;
+  --color-amber-300: #ffbe4f;
+  --color-amber-400: #ffa221;
+  --color-amber-500: #f98307;
+  --color-amber-600: #dd6202;
+  --color-amber-700: #b74506;
+  --color-amber-800: #94360c;
+  --color-amber-900: #7a2e0e;
+
+  --shadow-soft: 0 2px 8px rgba(15, 26, 84, 0.06), 0 1px 2px rgba(15, 26, 84, 0.04);
+  --shadow-card: 0 8px 24px rgba(15, 26, 84, 0.08), 0 2px 6px rgba(15, 26, 84, 0.04);
+  --shadow-lift: 0 20px 40px rgba(15, 26, 84, 0.14), 0 4px 12px rgba(15, 26, 84, 0.06);
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-marquee: marquee 28s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-slate-700 font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display text-navy-950;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .section-y {
+    @apply py-14 md:py-20;
+  }
+  .container-page {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}

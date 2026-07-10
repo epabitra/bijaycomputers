@@ -1,0 +1,16 @@
+export const brands = [
+  { name: "HP", category: "Laptops & Printers" },
+  { name: "Dell", category: "Laptops & Desktops" },
+  { name: "Lenovo", category: "Laptops" },
+  { name: "Canon", category: "Printers" },
+  { name: "Epson", category: "Printers" },
+  { name: "Brother", category: "Printers" },
+  { name: "Zebronics", category: "Cabinets, UPS & Peripherals" },
+  { name: "Logitech", category: "Keyboards & Mice" },
+  { name: "Intel", category: "Processors" },
+  { name: "Dahua", category: "CCTV Cameras" },
+  { name: "Mantra", category: "Biometric Devices" },
+  { name: "Quick Heal", category: "Antivirus Software" },
+  { name: "K7 Security", category: "Antivirus Software" },
+  { name: "LG", category: "Monitors & Displays" },
+];
