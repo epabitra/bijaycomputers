@@ -3,10 +3,16 @@ import Container from "../components/common/Container";
 import PageHeader from "../components/common/PageHeader";
 import ServiceRequestForm from "../components/contact/ServiceRequestForm";
 import { siteConfig, NAV_PHONE_LINK, NAV_WHATSAPP_LINK } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 export default function BookRepair() {
   return (
     <>
+      <SEO
+        title="Book a Repair"
+        description="Book a laptop, desktop, printer or CCTV repair with Bijaya Computer in Mohana. Free diagnosis, honest estimate, quick turnaround — walk-in, on-site, or remote."
+        keywords={["book computer repair Mohana", "service request Bijaya Computer", "laptop repair booking Gajapati"]}
+      />
       <PageHeader
         title="Book a Repair"
         description="Tell us what's wrong and we'll get back to you to confirm your appointment — free diagnosis, honest estimate, no obligation."

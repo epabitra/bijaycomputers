@@ -7,6 +7,8 @@ import ServiceCard from "../components/services/ServiceCard";
 import CTASection from "../components/sections/CTASection";
 import { services, getServiceBySlug } from "../data/services";
 import { NAV_PHONE_LINK, siteConfig } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
+import ServiceSchema from "../components/seo/ServiceSchema";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -19,6 +21,18 @@ export default function ServiceDetail() {
 
   return (
     <>
+      <SEO
+        title={`${service.title} in Mohana, Gajapati`}
+        description={`${service.summary} Serving Mohana, Gajapati and nearby areas in Odisha.`}
+        keywords={[
+          service.title,
+          `${service.shortTitle} Mohana`,
+          `${service.shortTitle} Gajapati`,
+          `${service.shortTitle} Odisha`,
+          `${service.shortTitle} near me`,
+        ]}
+      />
+      <ServiceSchema service={service} />
       <PageHeader
         title={service.title}
         description={service.tagline}

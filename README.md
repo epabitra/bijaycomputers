@@ -41,6 +41,16 @@ npm run build   # outputs to dist/
 npm run preview # preview the production build locally
 ```
 
+## SEO
+
+- **`src/components/seo/SEO.jsx`** — sets a unique, keyword-optimized `document.title`, meta description, keywords, canonical URL, and Open Graph/Twitter tags per route.
+- **`src/components/seo/*Schema.jsx`** — JSON-LD structured data: `LocalBusinessSchema` (sitewide `ElectronicsStore`), `BreadcrumbSchema` (auto-generated from `PageHeader`'s breadcrumb props), `ServiceSchema` (per service page), `FAQPageSchema`, `BlogPostingSchema`.
+- **`public/sitemap.xml`** — auto-generated from live route data (services, blog posts) by `scripts/generate-sitemap.mjs`, which runs automatically before every build via the `prebuild` npm script. Run `npm run sitemap` to regenerate it manually.
+- **`public/robots.txt`** — allows all crawlers, points to the sitemap.
+- Target keywords center on local intent: "computer repair Mohana", "laptop service Mohana Odisha", "CCTV installation Gajapati", etc. — see `siteConfig.coreKeywords` and each page's `<SEO keywords={...} />` call.
+
+Note: since this is a client-rendered SPA with no server/prerendering, only JS-executing crawlers (Googlebot) see the per-page meta tags from `SEO.jsx`. Non-JS crawlers (most social share bots — WhatsApp, Facebook, Twitter/X link previews) only see the static defaults in `index.html`, so shared links currently show the same homepage preview regardless of which page was shared. Prerendering (e.g. `vite-plugin-ssg`) would fix this if accurate social previews per page become important.
+
 ## Deployment (GitHub Pages)
 
 This repo deploys automatically via GitHub Actions (`.github/workflows/deploy.yml`) on every push to `main`:

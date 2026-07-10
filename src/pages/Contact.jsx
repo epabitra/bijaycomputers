@@ -3,6 +3,7 @@ import Container from "../components/common/Container";
 import PageHeader from "../components/common/PageHeader";
 import ContactForm from "../components/contact/ContactForm";
 import { siteConfig, NAV_PHONE_LINK, NAV_WHATSAPP_LINK } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 const infoCards = [
   {
@@ -34,6 +35,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Us"
+        description="Contact Bijaya Computer — call, WhatsApp, or visit us near JMFC Court, SBI Road, Mohana, Gajapati, Odisha. Open daily 9:30 AM – 9:00 PM."
+        keywords={["Bijaya Computer contact number", "computer shop Mohana address", "Bijay Computer Gajapati phone"]}
+      />
       <PageHeader
         title="Contact Us"
         description="Questions, quotes, or just want to check on a repair? We're one call, WhatsApp message or visit away."

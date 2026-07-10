@@ -1,6 +1,7 @@
 import Container from "../components/common/Container";
 import PageHeader from "../components/common/PageHeader";
 import { siteConfig } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 const sections = [
   {
@@ -61,6 +62,7 @@ const sections = [
 export default function TermsConditions() {
   return (
     <>
+      <SEO title="Terms & Conditions" description="Terms & Conditions for Bijaya Computer's website and services." noindex />
       <PageHeader title="Terms &amp; Conditions" breadcrumbItems={[{ label: "Terms & Conditions" }]} />
       <section className="section-y bg-white">
         <Container className="max-w-3xl">

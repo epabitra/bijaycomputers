@@ -1,6 +1,7 @@
 import Container from "../components/common/Container";
 import PageHeader from "../components/common/PageHeader";
 import { siteConfig } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 const sections = [
   {
@@ -51,6 +52,7 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <>
+      <SEO title="Privacy Policy" description="Privacy Policy for Bijaya Computer's website and services." noindex />
       <PageHeader title="Privacy Policy" breadcrumbItems={[{ label: "Privacy Policy" }]} />
       <section className="section-y bg-white">
         <Container className="max-w-3xl">

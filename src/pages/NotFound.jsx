@@ -1,9 +1,12 @@
 import { Home, Wrench } from "lucide-react";
 import Container from "../components/common/Container";
 import Button from "../components/common/Button";
+import SEO from "../components/seo/SEO";
 
 export default function NotFound() {
   return (
+    <>
+    <SEO title="Page Not Found" description="The page you're looking for doesn't exist." noindex />
     <section className="min-h-[80vh] flex items-center bg-navy-950 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.06]"
@@ -31,5 +34,6 @@ export default function NotFound() {
         </div>
       </Container>
     </section>
+    </>
   );
 }

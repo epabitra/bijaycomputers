@@ -5,10 +5,16 @@ import TestimonialCard from "../components/testimonials/TestimonialCard";
 import CTASection from "../components/sections/CTASection";
 import { testimonials } from "../data/testimonials";
 import { siteConfig } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 export default function Testimonials() {
   return (
     <>
+      <SEO
+        title="Customer Testimonials & Reviews"
+        description={`Read what customers say about Bijaya Computer — rated ${siteConfig.rating.value}/5 on Google in Mohana, Gajapati, Odisha.`}
+        keywords={["Bijaya Computer reviews", "computer shop Mohana reviews", "Bijay Computer Gajapati testimonials"]}
+      />
       <PageHeader
         title="Customer Testimonials"
         description="Honest feedback from customers we've helped across Mohana and nearby areas."

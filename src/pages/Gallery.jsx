@@ -4,6 +4,7 @@ import PageHeader from "../components/common/PageHeader";
 import GalleryGrid from "../components/gallery/GalleryGrid";
 import { galleryImages, galleryCategories } from "../data/gallery";
 import { cn } from "../utils/cn";
+import SEO from "../components/seo/SEO";
 
 export default function Gallery() {
   const [filter, setFilter] = useState("All");
@@ -13,6 +14,11 @@ export default function Gallery() {
 
   return (
     <>
+      <SEO
+        title="Gallery"
+        description="Photos of our shop, workshop and repair work at Bijaya Computer, Mohana, Gajapati, Odisha."
+        keywords={["Bijaya Computer photos", "computer shop Mohana gallery"]}
+      />
       <PageHeader
         title="Gallery"
         description="A look inside our shop, workshop and the day-to-day repair work at Bijaya Computer."

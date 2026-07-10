@@ -5,6 +5,9 @@ import Breadcrumb from "../components/common/Breadcrumb";
 import BlogCard from "../components/blog/BlogCard";
 import CTASection from "../components/sections/CTASection";
 import { blogPosts, getPostBySlug } from "../data/blogPosts";
+import SEO from "../components/seo/SEO";
+import BlogPostingSchema from "../components/seo/BlogPostingSchema";
+import BreadcrumbSchema from "../components/seo/BreadcrumbSchema";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -21,6 +24,15 @@ export default function BlogPost() {
 
   return (
     <>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        keywords={[post.category, `${post.category} Mohana`, "Bijaya Computer blog"]}
+        image={post.image}
+        type="article"
+      />
+      <BreadcrumbSchema items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
+      <BlogPostingSchema post={post} />
       <section className="pt-28 pb-4 md:pt-32">
         <Container>
           <Breadcrumb items={[{ label: "Blog", to: "/blog" }, { label: post.category }]} />

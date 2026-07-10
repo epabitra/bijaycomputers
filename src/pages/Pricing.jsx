@@ -5,10 +5,16 @@ import SectionHeading from "../components/common/SectionHeading";
 import PricingCard from "../components/pricing/PricingCard";
 import CTASection from "../components/sections/CTASection";
 import { pricingPlans, priceList, pricingNote } from "../data/pricing";
+import SEO from "../components/seo/SEO";
 
 export default function Pricing() {
   return (
     <>
+      <SEO
+        title="Pricing & Service Plans"
+        description="Transparent pricing for computer, laptop and printer repair in Mohana — free diagnosis, typical service rates, and AMC plans for homes and businesses in Gajapati, Odisha."
+        keywords={["computer repair price Mohana", "laptop repair cost Gajapati", "AMC plan computer Odisha"]}
+      />
       <PageHeader
         title="Pricing & Service Plans"
         description="Transparent, upfront pricing — free diagnosis on every job, with AMC plans for ongoing peace of mind."

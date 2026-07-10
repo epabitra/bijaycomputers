@@ -4,6 +4,7 @@ import PageHeader from "../components/common/PageHeader";
 import SectionHeading from "../components/common/SectionHeading";
 import Button from "../components/common/Button";
 import { siteConfig, NAV_PHONE_LINK } from "../data/siteConfig";
+import SEO from "../components/seo/SEO";
 
 const perks = [
   {
@@ -49,6 +50,11 @@ const openRoles = [
 export default function Careers() {
   return (
     <>
+      <SEO
+        title="Careers"
+        description="Join Bijaya Computer in Mohana, Gajapati — openings for repair technicians, sales & support, and networking/CCTV installers."
+        keywords={["computer technician jobs Mohana", "Bijaya Computer careers", "IT jobs Gajapati Odisha"]}
+      />
       <PageHeader
         title="Careers at Bijaya Computer"
         description="Join a growing local team fixing real problems for real customers across Mohana."

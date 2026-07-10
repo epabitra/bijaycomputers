@@ -8,6 +8,7 @@ import { productCategories } from "../data/products";
 import { cn } from "../utils/cn";
 import { NAV_PHONE_LINK } from "../data/siteConfig";
 import { Phone } from "lucide-react";
+import SEO from "../components/seo/SEO";
 
 export default function Products() {
   const [active, setActive] = useState(productCategories[0].id);
@@ -15,6 +16,11 @@ export default function Products() {
 
   return (
     <>
+      <SEO
+        title="Products — Laptops, Desktops, Printers & CCTV"
+        description="Browse laptops, desktops, printers, networking and CCTV equipment sold by Bijaya Computer in Mohana, Gajapati, Odisha — HP, Dell, Lenovo, Canon, Epson, Dahua and more."
+        keywords={["laptop sales Mohana", "computer products Gajapati", "printer sales Odisha", "CCTV camera sales Mohana"]}
+      />
       <PageHeader
         title="Products We Sell"
         description="Genuine laptops, desktops, printers, networking equipment and accessories — in stock and ready to go."

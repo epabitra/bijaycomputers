@@ -8,6 +8,7 @@ import { teamHighlights, certifications } from "../data/team";
 import { siteConfig } from "../data/siteConfig";
 import shopExterior from "../assets/images/hero/shop-exterior-signboard-close.webp";
 import staffCounter from "../assets/images/technicians/staff-counter-stock.webp";
+import SEO from "../components/seo/SEO";
 
 const values = [
   {
@@ -35,6 +36,11 @@ const values = [
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us"
+        description="Learn about Bijaya Computer — a local, family-run computer sales & service shop in Mohana, Gajapati, Odisha. Honest pricing, genuine parts and 8+ years serving the community."
+        keywords={["about Bijaya Computer", "computer shop Mohana history", "Bijay Computer Gajapati team"]}
+      />
       <PageHeader
         title="About Bijaya Computer"
         description="Mohana's local computer sales & service center — built on honest repairs, genuine parts, and a team that's actually here when you need us."

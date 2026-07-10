@@ -3,10 +3,20 @@ import PageHeader from "../components/common/PageHeader";
 import FAQAccordion from "../components/faq/FAQAccordion";
 import CTASection from "../components/sections/CTASection";
 import { faqCategories } from "../data/faqs";
+import SEO from "../components/seo/SEO";
+import FAQPageSchema from "../components/seo/FAQPageSchema";
 
 export default function FAQs() {
+  const allItems = faqCategories.flatMap((c) => c.items);
+
   return (
     <>
+      <SEO
+        title="Frequently Asked Questions"
+        description="Answers about repair turnaround, pricing, warranty, brands serviced and payment options at Bijaya Computer, Mohana, Gajapati, Odisha."
+        keywords={["computer repair FAQ Mohana", "Bijaya Computer warranty", "computer service questions Gajapati"]}
+      />
+      <FAQPageSchema items={allItems} />
       <PageHeader
         title="Frequently Asked Questions"
         description="Answers to the questions we hear most often — about repairs, pricing, brands and services."

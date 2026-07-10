@@ -1,5 +1,6 @@
 import Container from "./Container";
 import Breadcrumb from "./Breadcrumb";
+import BreadcrumbSchema from "../seo/BreadcrumbSchema";
 
 export default function PageHeader({ title, description, breadcrumbItems = [] }) {
   return (
@@ -16,6 +17,7 @@ export default function PageHeader({ title, description, breadcrumbItems = [] })
       <div className="absolute -bottom-24 -left-24 size-72 rounded-full bg-navy-500/30 blur-3xl" />
       <Container className="relative">
         <Breadcrumb items={breadcrumbItems} light />
+        <BreadcrumbSchema items={breadcrumbItems} />
         <h1 className="mt-4 text-3xl md:text-5xl font-bold text-white text-balance max-w-3xl">
           {title}
         </h1>

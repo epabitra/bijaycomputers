@@ -3,11 +3,22 @@ import Container from "../components/common/Container";
 import SectionHeading from "../components/common/SectionHeading";
 import ServiceCard from "../components/services/ServiceCard";
 import CTASection from "../components/sections/CTASection";
+import SEO from "../components/seo/SEO";
 import { services } from "../data/services";
 
 export default function Services() {
   return (
     <>
+      <SEO
+        title="Our Services"
+        description="Explore all 14 computer & IT services from Bijaya Computer — laptop repair, desktop repair, printer service, CCTV installation, networking, data recovery, AMC and more, in Mohana, Gajapati, Odisha."
+        keywords={[
+          "computer repair services Mohana",
+          "laptop desktop repair Gajapati",
+          "CCTV networking services Odisha",
+          "AMC computer services Mohana",
+        ]}
+      />
       <PageHeader
         title="Our Services"
         description="Complete computer, laptop, printer, networking and CCTV services for homes and businesses in Mohana — with genuine parts and honest pricing."
