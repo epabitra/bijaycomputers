@@ -2,7 +2,7 @@
 
 Official website for **Bijaya Computer**, a computer, laptop, printer, networking &amp; CCTV sales and service center in Mohana, Gajapati, Odisha.
 
-Live at: **https://bijaycomputers.epabitra.com**
+Live at: **https://www.bijayacomputers.in**
 
 ## Tech Stack
 

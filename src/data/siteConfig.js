@@ -1,4 +1,4 @@
-export const SITE_URL = "https://bijaycomputers.epabitra.com";
+export const SITE_URL = "https://www.bijayacomputers.in";
 
 export const siteConfig = {
   name: "Bijaya Computer",

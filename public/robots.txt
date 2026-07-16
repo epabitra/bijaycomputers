@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bijaycomputers.epabitra.com/sitemap.xml
+Sitemap: https://www.bijayacomputers.in/sitemap.xml
