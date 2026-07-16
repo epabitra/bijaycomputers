@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, MessageCircle } from "lucide-react";
 import Button from "../common/Button";
+import { buildWhatsAppLink } from "../../utils/whatsapp";
 
 const initialState = { name: "", email: "", phone: "", subject: "", message: "" };
 
@@ -8,6 +9,7 @@ export default function ContactForm() {
   const [form, setForm] = useState(initialState);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [whatsappLink, setWhatsappLink] = useState("");
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -23,6 +25,21 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const text = [
+      "*New Contact Message — Bijaya Computer*",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email && `Email: ${form.email}`,
+      form.subject && `Subject: ${form.subject}`,
+      `Message: ${form.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const link = buildWhatsAppLink(text);
+    setWhatsappLink(link);
+    window.open(link, "_blank", "noopener,noreferrer");
     setSubmitted(true);
     setForm(initialState);
   };
@@ -31,12 +48,15 @@ export default function ContactForm() {
     return (
       <div className="flex flex-col items-center text-center gap-3 py-14 px-6 bg-emerald-50 rounded-2xl border border-emerald-100">
         <CheckCircle2 className="size-12 text-emerald-600" />
-        <h3 className="font-display font-semibold text-xl text-navy-950">Message Sent!</h3>
+        <h3 className="font-display font-semibold text-xl text-navy-950">Almost done — send the WhatsApp message!</h3>
         <p className="text-sm text-slate-600 max-w-sm">
-          Thanks for reaching out. Our team will get back to you shortly — for anything urgent, feel free to
-          call or WhatsApp us directly.
+          We've opened WhatsApp with your message pre-filled. Please hit <span className="font-semibold">Send</span> so our
+          team receives it — we'll get back to you shortly.
         </p>
-        <Button variant="outline" onClick={() => setSubmitted(false)} className="mt-2">
+        <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" icon={MessageCircle} className="mt-2">
+          Open WhatsApp Again
+        </Button>
+        <Button variant="outline" onClick={() => setSubmitted(false)}>
           Send Another Message
         </Button>
       </div>

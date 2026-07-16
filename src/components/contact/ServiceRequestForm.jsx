@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, Send, MessageCircle } from "lucide-react";
 import Button from "../common/Button";
 import { services } from "../../data/services";
+import { buildWhatsAppLink } from "../../utils/whatsapp";
 
 const initialState = {
   name: "",
@@ -21,6 +22,7 @@ export default function ServiceRequestForm() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState("");
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -37,6 +39,24 @@ export default function ServiceRequestForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const message = [
+      "*New Service Request — Bijaya Computer*",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email && `Email: ${form.email}`,
+      `Device: ${form.deviceType}`,
+      `Service: ${form.service}`,
+      `Preferred Mode: ${form.mode}`,
+      form.preferredDate && `Preferred Date: ${form.preferredDate}`,
+      `Issue: ${form.issue}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const link = buildWhatsAppLink(message);
+    setWhatsappLink(link);
+    window.open(link, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
 
@@ -44,15 +64,17 @@ export default function ServiceRequestForm() {
     return (
       <div className="flex flex-col items-center text-center gap-3 py-16 px-6 bg-emerald-50 rounded-2xl border border-emerald-100">
         <CheckCircle2 className="size-14 text-emerald-600" />
-        <h3 className="font-display font-semibold text-2xl text-navy-950">Request Received!</h3>
+        <h3 className="font-display font-semibold text-2xl text-navy-950">Almost done — send the WhatsApp message!</h3>
         <p className="text-sm text-slate-600 max-w-md">
-          Thanks, {form.name.split(" ")[0] || "there"}! We've noted your service request for{" "}
-          <span className="font-semibold">{form.service}</span>. Our team will call you at{" "}
-          <span className="font-semibold">{form.phone}</span> shortly to confirm details.
+          Hi {form.name.split(" ")[0] || "there"}, we've opened WhatsApp with your service request for{" "}
+          <span className="font-semibold">{form.service}</span> pre-filled. Please hit <span className="font-semibold">Send</span> in
+          WhatsApp so our team receives it — we'll call you at <span className="font-semibold">{form.phone}</span> to confirm.
         </p>
+        <Button href={whatsappLink} target="_blank" rel="noopener noreferrer" icon={MessageCircle} className="mt-2">
+          Open WhatsApp Again
+        </Button>
         <Button
           variant="outline"
-          className="mt-2"
           onClick={() => {
             setSubmitted(false);
             setForm(initialState);
